@@ -13,13 +13,13 @@ class RedisConfig(
     private val host: String,
     @Value("\${spring.data.redis.port}")
     private val port: Int,
-    @Value("\${spring.data.redis.password}")
-    private val password: String,
+//    @Value("\${spring.data.redis.password}")
+//    private val password: String,
 ) {
     @Bean
     fun redisConnectionFactory(): RedisConnectionFactory {
         val configuration = RedisStandaloneConfiguration(host, port)
-        configuration.setPassword(password)
+//        configuration.setPassword(password)
         return LettuceConnectionFactory(configuration)
     }
 }
